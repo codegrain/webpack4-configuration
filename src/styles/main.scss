@@ -1,0 +1,82 @@
+/* COLOR */
+$bg: #eeeeee;
+$containerBackground: #ffffff;
+$containerBorderColor: #eeeeee;
+$buttonPrimaryBgColor: #666673;
+$buttonPrimaryTextColor: #ffffff;
+$buttonSecondaryColor: #A8D7BA;
+$bodyTextColor: #212529;
+
+/* BOXES */
+$containerWidth: 600px;
+$containerPadding: 20px;
+$containerMargin: 20px;
+
+/* MIXIN */
+@mixin button() {
+	padding: 10px 20px;
+	background: none;
+	border: 1px solid #cccccc;
+}
+@mixin buttonPrimary() {
+	background-color: $buttonPrimaryBgColor;
+	border-color: $buttonPrimaryBgColor;
+	color: $buttonPrimaryTextColor;
+}
+@mixin buttonSecondary() {
+	background-color: $buttonSecondaryColor;
+	border-color: $buttonSecondaryColor;
+}
+
+/* MAIN CSS */
+@-ms-viewport {
+	width: device-width;
+}
+* {
+	box-sizing: border-box;
+	&::before, &::after {
+		box-sizing: border-box;
+	}
+}
+h1, h2, h3, h4, h5, h6{
+	text-transform: uppercase;
+}
+body {
+	margin: 0;
+	font-family: "Helvetica", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	font-size: 1rem;
+	font-weight: 400;
+	line-height: 1.5;
+	color: $bodyTextColor;
+	text-align: left;
+	background-color: $bg;
+}
+.container{
+	max-width: 100%;
+	margin: $containerMargin auto;
+	width: $containerWidth;
+	background-color: $containerBackground;
+	padding: $containerPadding;
+	border: 1px solid $containerBorderColor;
+}
+.logo{
+	text-align: center;
+}
+.text-center{
+	text-align: center;
+}
+.button{
+	@include button();
+	&.button-primary{
+		@include buttonPrimary();
+	}
+}
+img{
+	max-width: 100%;
+}
+@media(max-width: 480px){
+	.container{
+		margin: $containerMargin;
+		width: calc(100% - (#{$containerMargin} + #{$containerMargin}));
+	}
+}
